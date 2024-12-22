@@ -1,0 +1,222 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: sans-serif;
+  font-size: 1.8rem;
+  background-color: #b38df9;
+  padding-top: 20rem;
+  color: #333;
+}
+.container {
+  width: 50rem;
+  border: 0.2rem solid #333;
+  border-radius: 1rem;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 10rem 5rem;
+  background-color: #fff;
+}
+/* блок, в кт появится пароль */
+.password-box {
+  border: 0.2rem solid #777;
+  width: 100%;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  margin-bottom: 4rem;
+}
+/* место под пароль */
+.password {
+  display: inline-block;
+  width: 75%;
+  height: 5rem;
+  vertical-align: middle;
+  overflow: hidden;
+  padding: 1.5rem 0 0 0;
+}
+/* кнопка копирования */
+.copy {
+  border: none;
+  background-color: #fff;
+  color: #333;
+  border-radius: 1rem;
+  border: 0.1rem solid #333;
+  cursor: pointer;
+  padding: 1rem;
+  user-select: none;
+  transition: all 0.3s;
+  font-size: 1.8rem;
+}
+.copy:hover {
+  background-color: #333;
+  color: #fff;
+}
+/* блок настроек и генерации пароля */
+.settings {
+  width: 100%;
+}
+/* блок настройки длины пароля */
+.length-box {
+  width: 100%;
+}
+.length-text {
+  margin-bottom: 2rem;
+}
+.length-inputs {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+/* ввод числа */
+#length-number {
+  display: inline-block;
+  width: 7rem;
+  height: 3rem;
+  border: 0.2rem solid #777;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-right: 2rem;
+  font-size: 1.8rem;
+}
+/* ползунок */
+#length-range {
+  display: inline-block;
+  width: 20rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+#length-range::-webkit-slider-runnable-track {
+  background-color: #ccc;
+  border-radius: 100rem;
+  height: 40%;
+}
+#length-range::-webkit-slider-thumb {
+  background-color: #9173ca;
+  margin-top: -0.5rem;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  border-radius: 100rem;
+  -webkit-appearance: none;
+}
+#length-range::-moz-range-track {
+  background-color: #ccc;
+  border-radius: 100rem;
+  height: 40%;
+}
+#length-range::-moz-range-thumb {
+  background-color: #9173ca;
+  margin-top: -0.5rem;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  border-radius: 100rem;
+}
+/* блок добавления цифр и символов */
+.number-and-symbol-box {
+  margin-bottom: 4rem;
+}
+.number-box {
+  margin-bottom: 1rem;
+  position: relative;
+}
+#number {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+#number-label {
+  user-select: none;
+}
+#number-label::before {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  border: 0.1rem solid #333;
+  display: inline-block;
+  border-radius: 0.2rem;
+  margin-right: 1rem;
+}
+#number:checked + #number-label::before {
+  background-color: #9173ca;
+}
+#symbol {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+#symbol-label {
+  user-select: none;
+}
+#symbol-label::before {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  border: 0.1rem solid #333;
+  display: inline-block;
+  border-radius: 0.2rem;
+  margin-right: 1rem;
+}
+#symbol:checked + #symbol-label::before {
+  background-color: #9173ca;
+}
+/* блок генерации пароля */
+.generate-box {
+  width: 100%;
+  text-align: center;
+}
+/* кнопка генерации пароля */
+.generate {
+  border: none;
+  background-color: #fff;
+  border: 0.1rem solid #333;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  font-size: 1.8rem;
+  user-select: none;
+  transition: all 0.5s;
+}
+.generate:hover {
+  color: #fff;
+  background-color: #333;
+}
+.generate:active {
+  background-color: #111;
+}
+/* Классы при успешном копировании или ошибке */
+.error {
+  background-color: #c41e3a;
+  color: #fff;
+  border: none;
+  position: relative;
+  animation: 0.5s linear error;
+}
+.copied {
+  border: none;
+  background-color: #7d7;
+  color: #fff;
+}
+/* анимация при ошибке */
+@keyframes error {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-1rem);
+  }
+  75% {
+    transform: translateX(1rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
